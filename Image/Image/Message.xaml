@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Image.Message">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Back" ImageSource="" Clicked="OnBack" VerticalOptions="StartAndExpand" HorizontalOptions="Start"></Button>
+            <Button Text="Refresh" ImageSource="" Clicked="OnRefresh"  VerticalOptions="StartAndExpand" HorizontalOptions="Start"></Button>
+        </StackLayout>
+       
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <ListView x:Name="ListView1" RowHeight="300" HasUnevenRows="True">
+                <ListView.ItemTemplate >
+                    <DataTemplate>
+                        <ViewCell >
+                            <StackLayout Orientation="Vertical" Padding="8,0,8,0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="Name" Grid.Column="0" FontSize="20"/>
+                                    <Label Text="{Binding Name}" Grid.Column="1" TextColor="#000" LineBreakMode="TailTruncation" FontSize="20"/>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="Address" Grid.Column="0" FontSize="20"/>
+                                    <Label Text="{Binding Address}" Grid.Column="1" TextColor="#000" LineBreakMode="TailTruncation" FontSize="20" />
+                                </Grid>
+                                
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="Contact" Grid.Column="0" FontSize="20"/>
+                                    <Label Text="{Binding Contact}" Grid.Column="1" TextColor="#000" LineBreakMode="TailTruncation" FontSize="20"/>
+                                </Grid>
+                                
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="Age" Grid.Column="0" FontSize="20"/>
+                                    <Label Text="{Binding Age}" Grid.Column="1" TextColor="#000" LineBreakMode="TailTruncation" FontSize="20" />
+                                </Grid>
+                                
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="Text" Grid.Column="0" FontSize="20"/>
+                                    <Editor Text="{Binding Text}" Grid.Column="1" TextColor="#000" AutoSize="TextChanges" IsReadOnly="True" FontSize="20"/>
+                                </Grid>
+                                
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

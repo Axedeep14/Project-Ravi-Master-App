@@ -4,44 +4,61 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Image.MainPage">
+             x:Class="Image.MainPage"
+             >
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Button  Text="View Message" Clicked="OnViewMessages"  VerticalOptions="StartAndExpand" HorizontalOptions="Start" ImageSource=""></Button>
+            <Button  Text="Clear Fields" Clicked="OnClear"  VerticalOptions="StartAndExpand" HorizontalOptions="Start" ImageSource=""> </Button>
+        </StackLayout>
 
-    <StackLayout>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Label Grid.Column="1" 
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" 
                    Text="Description" 
                    HorizontalOptions="Center"
-                   VerticalOptions="CenterAndExpand" />
-            <Editor Grid.Column="2" 
+                   VerticalOptions="CenterAndExpand"  FontSize="20"/>
+                <Editor Grid.Column="1" 
                    x:Name="pic_desc"
-                Placeholder="Enter your note"
-                HeightRequest="100" />
-        </Grid>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Label Grid.Column="1" 
+                Placeholder="Pic Description"
+                AutoSize="TextChanges"
+                   FontSize="20" />
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" 
                    Text="Event Picture" 
                    HorizontalOptions="Center"
-                   VerticalOptions="CenterAndExpand" />
-            <Editor Grid.Column="2" 
+                   VerticalOptions="CenterAndExpand" FontSize="20" />
+                <Editor Grid.Column="1" 
                    x:Name="pic_path"
-                Placeholder="Enter your note"
-                HeightRequest="100" />
-            <Button Grid.Column="3"
-                    Text="Select Picture"
-                    Clicked="OnPicSelect"/>
-        </Grid>
-        <Button Text="Send"
-                Clicked="OnSendPic"/>
-       
-    </StackLayout>
+                Placeholder="Pic Path"
+                AutoSize="TextChanges" FontSize="20" IsReadOnly="True"/>
 
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" Text="Image"
+                    Clicked="OnPicSelect" VerticalOptions="StartAndExpand"
+                HorizontalOptions="Start" FontSize="20"/>
+                <Button Grid.Column="2" Text="Send"
+                Clicked="OnSendPic" VerticalOptions="StartAndExpand"
+                HorizontalOptions="Start" FontSize="20"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

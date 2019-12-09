@@ -22,6 +22,7 @@ namespace Image
         public MainPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasBackButton(this, false);
         }
 
         private async void OnPicSelect(object sender, EventArgs e)
@@ -36,7 +37,7 @@ namespace Image
                     _fileName = myResult.FileName;
                     if (File.Exists(_filePath))
                     {
-                        pic_path.Text = File.ReadAllText(_filePath);
+                        pic_path.Text = _filePath;
                     }
                     /*foreach (byte b in myResult.DataArray) //Empty array
                         b.ToString();*/
@@ -72,10 +73,6 @@ namespace Image
                 Console.WriteLine("DEEPAK   " + baContent);
                 Console.WriteLine("DEEPAK   " + _filePath);
 
-
-
-
-
                 //upload MultipartFormDataContent content async and store response in response var
                 var response =
                     await client.PostAsync(url, content);
@@ -96,6 +93,18 @@ namespace Image
                 return;
             }
         }
+
+        private async void OnViewMessages(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Message());
+        }
+
+        private void OnClear(object sender, EventArgs e)
+        {
+            pic_desc.Text = "";
+            pic_path.Text = "";
+        }
+
     }
     
 }
